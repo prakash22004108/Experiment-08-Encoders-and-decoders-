@@ -55,17 +55,41 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+Step-1: create module encoder and decoder. Step-2: Get inputs and outputs for encoders and decoders. Step-3: perform or operation for encoder and and logic for decoders. Step-4: perform RTL LOGIC and get waveform. Step-5: End the module.
 
 
 
 ### PROGRAM 
-/*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: prakash.R
+RegisterNumber: 212222240074
 
+ENCODER:
+module enc(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+or(a0,y7,y5,y3,y1);
+or(a1,y7,y6,y3,y2);
+or(a2,y7,y6,y5,y4);
+endmodule 
+
+DECODER:
+module dec (a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input a0,a1,a2;
+output y0,y1,y2,y3,y4,y5,y6,y7;
+wire a0bar,a1bar,a2bar;
+not(a0bar,a0);
+not(a1bar,a1);
+not(a2bar,a2);
+and(y0,a0bar,a1bar,a2bar);
+and(y1,a0,a1bar,a2bar);
+and(y2,a0bar,a1,a2bar);
+and(y3,a0,a1,a2bar);
+and(y4,a0bar,a1bar,a2);
+and(y5,a0,a1bar,a2);
+and(y6,a0bar,a1,a2);
+and(y7,a0,a1,a2);
+endmodule
 
 
 
@@ -73,6 +97,8 @@ RegisterNumber:
 
 ### RTL LOGIC  
 
+![1](https://github.com/sarveshjustin/Experiment-08-Encoders-and-decoders-/assets/113497481/c1514df8-7b17-4a19-8a0b-8ff94d89c46c)
+![2](https://github.com/sarveshjustin/Experiment-08-Encoders-and-decoders-/assets/113497481/2b7006d5-6c69-431e-ba66-a13fe2fe22ef)
 
 
 
@@ -81,16 +107,17 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS  
-
-
-
-
+![3](https://github.com/sarveshjustin/Experiment-08-Encoders-and-decoders-/assets/113497481/d9318a08-278d-4fba-bf90-4c8fe574fc1f)
+![4](https://github.com/sarveshjustin/Experiment-08-Encoders-and-decoders-/assets/113497481/fbbb0d0e-f244-48ef-b2bb-3d035d5257af)
 
 ### TRUTH TABLE 
 
+![5](https://github.com/sarveshjustin/Experiment-08-Encoders-and-decoders-/assets/113497481/da79cf4a-fc50-40d6-98f0-2c9f75265295)
+![6](https://github.com/sarveshjustin/Experiment-08-Encoders-and-decoders-/assets/113497481/85363d28-c137-4bb1-bddf-692ddc43ffda)
 
 
 
 
 
 ### RESULTS 
+Thus,program to design encoder and decoder is successfully completed.
